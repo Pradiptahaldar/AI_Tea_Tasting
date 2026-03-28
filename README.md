@@ -99,8 +99,8 @@ streamlit run app.py
 ```
 tea-taster-ai/
 │
-├── app/
-│   └── app.py
+├── app.py
+│   
 │
 ├── model/
 │   ├── train_model.py
@@ -112,7 +112,7 @@ tea-taster-ai/
 │
 ├── requirements.txt
 ├── README.md
-└── .gitignore 
+
 ```
 
 ---
