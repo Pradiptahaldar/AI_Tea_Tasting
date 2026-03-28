@@ -60,7 +60,7 @@ st.subheader("Dataset Preview")
 st.dataframe(data.head())
 
 # 🔴 LOAD MODEL (INSTEAD OF TRAINING)
-@st.cache_resource
+@st.cache_resource(show_spinner=False)
 def load_model():
     model = joblib.load("./models/model.pkl")
     encoder = joblib.load("./models/encoder.pkl")
