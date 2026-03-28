@@ -100,8 +100,10 @@ streamlit run app.py
 tea-taster-ai/
 │
 ├── app.py
-│   
+├── main.py  
+│
 ├── model/
+│   
 │   ├── model.pkl
 │   └── encoder.pkl
 │
