@@ -101,9 +101,7 @@ tea-taster-ai/
 │
 ├── app.py
 │   
-│
 ├── model/
-│   ├── train_model.py
 │   ├── model.pkl
 │   └── encoder.pkl
 │
