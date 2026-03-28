@@ -75,7 +75,7 @@ A large dataset is used to improve prediction accuracy and reliability.
 1. Install required libraries:
 
 ```
-pip install streamlit pandas scikit-learn
+pip install -r requirements.txt
 ```
 
 2. Run the app:
@@ -84,15 +84,35 @@ pip install streamlit pandas scikit-learn
 streamlit run app.py
 ```
 
+## ⚠️ Important Notes
+
+- The model is **not trained inside the app** to improve performance.
+- If you update the dataset, you must retrain the model.
+- `model.pkl` and `encoder.pkl` must always stay in sync.
+
+---
+
 ---
 
 ## 📁 Project Structure
 
 ```
-├── app.py          # Streamlit UI  
-├── main.py         # Machine learning model  
-├── tea_data.csv    # Dataset  
-└── README.md       # Documentation  
+tea-taster-ai/
+│
+├── app/
+│   └── app.py
+│
+├── model/
+│   ├── train_model.py
+│   ├── model.pkl
+│   └── encoder.pkl
+│
+├── data/
+│   └── dataset.csv
+│
+├── requirements.txt
+├── README.md
+└── .gitignore 
 ```
 
 ---

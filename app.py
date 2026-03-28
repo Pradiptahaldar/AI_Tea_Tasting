@@ -1,9 +1,7 @@
 import streamlit as st
 import pandas as pd
 import time
-from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.preprocessing import LabelEncoder
+import joblib
 
 # 🎨 PAGE CONFIG
 st.set_page_config(page_title="Tea Taster AI", page_icon="🍵", layout="centered")
@@ -42,7 +40,7 @@ st.caption("Smart tea quality prediction system")
 # 📊 LOAD DATA
 @st.cache_data
 def load_data():
-    return pd.read_csv("dataset.csv")
+    return pd.read_csv("./data/dataset.csv")
 
 data = load_data()
 
@@ -61,27 +59,14 @@ with st.expander("ℹ️ About this project"):
 st.subheader("Dataset Preview")
 st.dataframe(data.head())
 
-# 🧠 PREPROCESS
-X = data[['temperature', 'ph', 'color_score']]
-le = LabelEncoder()
-y = le.fit_transform(data['quality'])
-
-X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.25, random_state=42
-)
-
-# 🤖 MODEL
+# 🔴 LOAD MODEL (INSTEAD OF TRAINING)
 @st.cache_resource
-def train_model():
-    model = RandomForestClassifier(
-        n_estimators=50,
-        max_depth=5,
-        random_state=42
-    )
-    model.fit(X_train, y_train)
-    return model
+def load_model():
+    model = joblib.load("./models/model.pkl")
+    encoder = joblib.load("./models/encoder.pkl")
+    return model, encoder
 
-model = train_model()
+model, le = load_model()
 
 # 🧾 SESSION STATE INIT
 if "history" not in st.session_state:
