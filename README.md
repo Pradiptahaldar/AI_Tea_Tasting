@@ -50,14 +50,14 @@ Based on these inputs, the model classifies tea quality into:
 * Microcontroller (Arduino - simulated)
 * Output Display
 
-### 🔄 Working Principle
+###  Working Principle
 
 1. Sensors collect real-time data (temperature, pH).
 2. Data is sent to the microcontroller.
 3. The processed values are passed to the ML model.
 4. The system predicts tea quality and displays the result.
 
-### 🧪 Prototype
+###  Prototype
 
 The hardware system can be simulated using **Tinkercad**, demonstrating how the model can be applied in real-world tea processing environments.
 
