@@ -2,3 +2,7 @@ streamlit
 pandas
 scikit-learn
 joblib
+numpy
+opencv
+serial
+time
