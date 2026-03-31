@@ -93,6 +93,8 @@ tea-project/
 ├── app.py
 ├── pycache
 ├── tea_dataset.csv
+|--requirments .txt
+|-- readme.md
 
 
 
