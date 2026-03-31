@@ -21,15 +21,9 @@ It combines **software (ML model + UI)** with a **hardware prototype concept** t
 The model is trained on a dataset containing tea attributes:
 
 * Temperature
-* pH level
+* Humidity
+* Aroma
 * Color score
-
-Based on these inputs, the model classifies tea quality into:
-
-* **0 → Low Quality**
-* **1 → Medium Quality**
-* **2 → High Quality**
-
 ---
 
 ## 🛠️ Technologies Used
@@ -38,6 +32,10 @@ Based on these inputs, the model classifies tea quality into:
 * Streamlit
 * Pandas
 * Scikit-learn
+* numpy
+* opencv
+* serial
+* time
 
 ---
 
@@ -45,21 +43,22 @@ Based on these inputs, the model classifies tea quality into:
 
 ### 🔌 Components
 
-* Temperature Sensor
-* pH Sensor
-* Microcontroller (Arduino - simulated)
-* Output Display
+* Temperature Sensor (DHT11)
+* Humidity sensor (DHT11)
+* Microcontroller (ESP32 dev module)
+* gas sensor (MQ2)
 
 ###  Working Principle
 
-1. Sensors collect real-time data (temperature, pH).
-2. Data is sent to the microcontroller.
+1. Sensors collect real-time data (temperature, Aroma, Gas,Humidity).
+2. Data is sent to the microcontroller(ESP32).
 3. The processed values are passed to the ML model.
 4. The system predicts tea quality and displays the result.
 
 ###  Prototype
 
 The hardware system can be simulated using **Tinkercad**, demonstrating how the model can be applied in real-world tea processing environments.
+its made by us for academic purposes you can buy the things and make it
 
 ---
 
@@ -84,34 +83,18 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-## ⚠️ Important Notes
-
-- The model is **not trained inside the app** to improve performance.
-- If you update the dataset, you must retrain the model.
-- `model.pkl` and `encoder.pkl` must always stay in sync.
-
----
-
----
 
 ## 📁 Project Structure
 
 ```
-tea-taster-ai/
+tea-project/
 │
+├── main.py
 ├── app.py
-├── main.py  
-│
-├── model/
-│   
-│   ├── model.pkl
-│   └── encoder.pkl
-│
-├── data/
-│   └── dataset.csv
-│
-├── requirements.txt
-├── README.md
+├── pycache
+├── tea_dataset.csv
+
+
 
 ```
 
@@ -119,7 +102,6 @@ tea-taster-ai/
 
 ## 🚀 Future Improvements
 
-* Real-time hardware integration
 * Deployment of the web app
 * Improved UI/UX design
 * More advanced ML models
